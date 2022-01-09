@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ImportGroup Label="PropertySheets">
+</ImportGroup>
+
+<!--  ==========================================================================================  -->
+<!--  |              SUPER IMPORTANT        CURRENT PROJECT IS ***NETLIB****                   |  -->
+<!--  ==========================================================================================  -->
+<!--  |      ALL  RELATIVE PATHS ARE IN RELATION TO THE NETLIB.VCXPROJ PROJECT FILE            |  -->
+<!--  |      $(ProjectDir)..\externals\$(corelib_image_name)                                   |  -->
+<!--  ==========================================================================================  -->
+
+
+  <PropertyGroup Label="UserMacros">
+    <corelib_image_name>corelib</corelib_image_name>
+    <corelib_version>1.0</corelib_version>
+    <corelib_root_path>$(ProjectDir)..\$(corelib_image_name)</corelib_root_path>
+  </PropertyGroup>
+
+  <!-- General Environment added in UserMacros -->
+  <PropertyGroup Label="LibMacros">
+    <corelib_headers_path>$(corelib_root_path)\src\</corelib_headers_path>
+    <corelib_sources_path>$(corelib_root_path)\src\</corelib_sources_path>
+    <corelib_binaries_path>$(corelib_root_path)\bin\$(Platform)</corelib_binaries_path>
+  </PropertyGroup> 
+
+<!--===========================================================================
+//
+//   corelib configuration: Common for all
+//   CORELIB;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_WINDOWS;USE_CORELIB_LOG_IMPL
+//===========================================================================-->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(corelib_headers_path);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_CORELIB_LOG_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+</Project>

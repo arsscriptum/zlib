@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)src\uncompr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\adler32.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\compress.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\crc32.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\deflate.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\gzio.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\infback.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\inffast.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\inflate.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\inftrees.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\minigzip.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\trees.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\zutil.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(ProjectDir)src\crc32.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\deflate.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\inffast.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\inffixed.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\zutil.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\zlib.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\zconf.in.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\zconf.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\trees.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\inftrees.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)src\inflate.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{c368df97-b61f-4289-a718-29acd8b9a53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{39d0d6df-b337-408f-ab33-5cabc3e945c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="def">
+      <UniqueIdentifier>{32b8bb0c-97c6-43e1-881e-d05f7ccbcb61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\zlib.def">
+      <Filter>def</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -16,15 +16,21 @@
   <PropertyGroup Label="UserMacros">
     <zlib_image_name>zlib</zlib_image_name>
     <zlib_version>1.0</zlib_version>
-    <zlib_root_path>$(ProjectDir)</zlib_root_path>
+    <zlib_root_path>$(ProjectDir)..\</zlib_root_path>
+
+    <zlib_bin_path>$(zlib_root_path)bin\</zlib_bin_path>
+    <zlib_obj_path>$(ProjectDir)obj\</zlib_obj_path>
+    <zlib_doc_path>$(zlib_root_path)doc\</zlib_doc_path>
+
   </PropertyGroup>
 
   <!-- General CodeMeter Environment added in UserMacros -->
   <PropertyGroup Label="LibMacros">
-    <zlib_headers_path>$(zlib_root_path)\src\</zlib_headers_path>
-    <zlib_sources_path>$(zlib_root_path)\src\</zlib_sources_path>
-    <zlib_binaries_path>$(zlib_root_path)\bin\$(Platform)</zlib_binaries_path>
+    <zlib_headers_path>$(zlib_root_path)src\</zlib_headers_path>
+    <zlib_sources_path>$(zlib_root_path)src\</zlib_sources_path>
+    <zlib_binaries_path>$(zlib_bin_path)$(Platform)\</zlib_binaries_path>
   </PropertyGroup> 
+
   <PropertyGroup Condition="'$(Platform)'=='Win32'" Label="SpecialConfiguration">
      <AbrevPlatform>32</AbrevPlatform>
   </PropertyGroup>
@@ -35,16 +41,17 @@
      <AbrevConfig>d</AbrevConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="SpecialConfiguration">
-     <AbrevConfig>r</AbrevConfig>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Final'" Label="SpecialConfiguration">
      <AbrevConfig></AbrevConfig>
   </PropertyGroup>
-  <PropertyGroup Label="ConfigurationPlaceHolder" Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Release'">
-    <ConfigurationPlaceHolder>$(Configuration)</ConfigurationPlaceHolder>
+  <PropertyGroup Condition="'$(Configuration)'=='DebugDll'" Label="SpecialConfiguration">
+     <AbrevConfig>d_dll</AbrevConfig>
   </PropertyGroup>
-  <PropertyGroup Label="LibName" Condition="'$(Configuration)'=='Final'">
-    <ConfigurationPlaceHolder>Release</ConfigurationPlaceHolder>
+  <PropertyGroup Condition="'$(Configuration)'=='ReleaseDll'" Label="SpecialConfiguration">
+     <AbrevConfig>_dll</AbrevConfig>
+  </PropertyGroup>
+  <PropertyGroup Label="ConfigurationPlaceHolder">
+    <!-- <ConfigurationPlaceHolder>_$(AbrevConfig)$(AbrevPlatform)</ConfigurationPlaceHolder> -->
+    <ConfigurationPlaceHolder>$(AbrevConfig)</ConfigurationPlaceHolder>
   </PropertyGroup>
 
  
@@ -55,26 +62,27 @@
 //===========================================================================-->
   <PropertyGroup Label="LibName" Condition="'$(Configuration)'=='Debug'">
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <zlib_imagename_debug_static>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder).lib</zlib_imagename_debug_static>
-    <zlib_imagename_debug_dynamic_lib>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.lib</zlib_imagename_debug_dynamic_lib>
-    <zlib_imagename_debug_dynamic_dll>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.dll</zlib_imagename_debug_dynamic_dll>
+    <zlib_imagename_debug_static>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder).lib</zlib_imagename_debug_static>
+    <zlib_imagename_debug_dynamic_lib>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.lib</zlib_imagename_debug_dynamic_lib>
+    <zlib_imagename_debug_dynamic_dll>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.dll</zlib_imagename_debug_dynamic_dll>
   </PropertyGroup>
   <PropertyGroup Label="LibName" Condition="'$(Configuration)'=='Release'">
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <zlib_imagename_release_static>$(zlib_binaries_path)\$(zlib_image_name)_Release.lib</zlib_imagename_release_static>
-    <zlib_imagename_release_dynamic_lib>$(zlib_binaries_path)\$(zlib_image_name)_ReleaseDll.lib</zlib_imagename_release_dynamic_lib>
-    <zlib_imagename_release_dynamic_dll>$(zlib_binaries_path)\$(zlib_image_name)_ReleaseDll.dll</zlib_imagename_release_dynamic_dll>
+    <zlib_imagename_release_static>$(zlib_binaries_path)$(zlib_image_name)_Release.lib</zlib_imagename_release_static>
+    <zlib_imagename_release_dynamic_lib>$(zlib_binaries_path)$(zlib_image_name)_ReleaseDll.lib</zlib_imagename_release_dynamic_lib>
+    <zlib_imagename_release_dynamic_dll>$(zlib_binaries_path)$(zlib_image_name)_ReleaseDll.dll</zlib_imagename_release_dynamic_dll>
   </PropertyGroup>
   <PropertyGroup Label="LibName" Condition="'$(Configuration)'=='Final'">
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <zlib_imagename_final_static>$(zlib_binaries_path)\$(zlib_image_name)_Release.lib</zlib_imagename_final_static>
-    <zlib_imagename_final_dynamic_lib>$(zlib_binaries_path)\$(zlib_image_name)_ReleaseDll.lib</zlib_imagename_final_dynamic_lib>
-    <zlib_imagename_final_dynamic_dll>$(zlib_binaries_path)\$(zlib_image_name)_ReleaseDll.dll</zlib_imagename_final_dynamic_dll>
+    <zlib_imagename_final_static>$(zlib_binaries_path)$(zlib_image_name)_Release.lib</zlib_imagename_final_static>
+    <zlib_imagename_final_dynamic_lib>$(zlib_binaries_path)$(zlib_image_name)_ReleaseDll.lib</zlib_imagename_final_dynamic_lib>
+    <zlib_imagename_final_dynamic_dll>$(zlib_binaries_path)$(zlib_image_name)_ReleaseDll.dll</zlib_imagename_final_dynamic_dll>
   </PropertyGroup>
   <PropertyGroup Label="LibName">
-    <zlib_imagename_static>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder).lib</zlib_imagename_static>
-    <zlib_imagename_dynamic_lib>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.lib</zlib_imagename_dynamic_lib>
-    <zlib_imagename_dynamic_dll>$(zlib_binaries_path)\$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.dll</zlib_imagename_dynamic_dll>
+     <zlib_image_basename>$(zlib_image_name)$(ConfigurationPlaceHolder)</zlib_image_basename>
+    <zlib_imagename_static>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder).lib</zlib_imagename_static>
+    <zlib_imagename_dynamic_lib>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.lib</zlib_imagename_dynamic_lib>
+    <zlib_imagename_dynamic_dll>$(zlib_binaries_path)$(zlib_image_name)_$(ConfigurationPlaceHolder)Dll.dll</zlib_imagename_dynamic_dll>
   </PropertyGroup>
 
 <!--===========================================================================

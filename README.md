@@ -1,5 +1,5 @@
 # zlib
-![zlib - compression library](https://github.com/radicaltronic/zlib "zlib")
+![zlib - compression library](./doc/img/zlib_small.png "zlib")
 
 Simple, easy to use,  library written in c++ providing compression functionalities.
 

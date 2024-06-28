@@ -7,10 +7,10 @@
   ####################################################################################################
 -->
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(ProjectDir)props\toolset.props" />
-  <Import Project="$(ProjectDir)props\corelib.props" Condition="'$(corelib_version)' == ''" />
-  <Import Project="$(ProjectDir)props\zlib_internal.props" Condition="'$(zlib_version)' == ''" />
-  <Import Project="$(ProjectDir)props\dejainsight.props" Condition="'$(dejainsight_zlib_integration)' == ''" />
+  <Import Project="$(ProjectDir)cfg\toolset.props" />
+  <Import Project="$(ProjectDir)cfg\corelib.props" Condition="'$(corelib_version)' == ''" />
+  <Import Project="$(ProjectDir)cfg\zlib_internal.props" Condition="'$(zlib_version)' == ''" />
+  <Import Project="$(ProjectDir)cfg\dejainsight.props" Condition="'$(dejainsight_zlib_integration)' == ''" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDll|Win32">
       <Configuration>DebugDll</Configuration>
@@ -70,8 +70,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>bin\$(Platform)\</OutDir>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(zlib_binaries_path)</OutDir>
+    <IntDir>$(zlib_obj_path)$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{23afee8d-a6c5-4c6a-b5e7-81e942075baa}</ProjectGuid>
@@ -130,42 +130,42 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <TargetName>$(zlib_image_basename)</TargetName>
   </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)src\adler32.c" />
-    <ClCompile Include="$(ProjectDir)src\compress.c" />
-    <ClCompile Include="$(ProjectDir)src\crc32.c" />
-    <ClCompile Include="$(ProjectDir)src\deflate.c" />
-    <ClCompile Include="$(ProjectDir)src\gzio.c" />
-    <ClCompile Include="$(ProjectDir)src\infback.c" />
-    <ClCompile Include="$(ProjectDir)src\inffast.c" />
-    <ClCompile Include="$(ProjectDir)src\inflate.c" />
-    <ClCompile Include="$(ProjectDir)src\inftrees.c" />
-    <ClCompile Include="$(ProjectDir)src\minigzip.c" />
-    <ClCompile Include="$(ProjectDir)src\trees.c" />
-    <ClCompile Include="$(ProjectDir)src\uncompr.c" />
-    <ClCompile Include="$(ProjectDir)src\zutil.c" />
+    <ClCompile Include="$(zlib_sources_path)adler32.c" />
+    <ClCompile Include="$(zlib_sources_path)compress.c" />
+    <ClCompile Include="$(zlib_sources_path)crc32.c" />
+    <ClCompile Include="$(zlib_sources_path)deflate.c" />
+    <ClCompile Include="$(zlib_sources_path)gzio.c" />
+    <ClCompile Include="$(zlib_sources_path)infback.c" />
+    <ClCompile Include="$(zlib_sources_path)inffast.c" />
+    <ClCompile Include="$(zlib_sources_path)inflate.c" />
+    <ClCompile Include="$(zlib_sources_path)inftrees.c" />
+    <ClCompile Include="$(zlib_sources_path)minigzip.c" />
+    <ClCompile Include="$(zlib_sources_path)trees.c" />
+    <ClCompile Include="$(zlib_sources_path)uncompr.c" />
+    <ClCompile Include="$(zlib_sources_path)zutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(ProjectDir)src\crc32.h" />
-    <ClInclude Include="$(ProjectDir)src\deflate.h" />
-    <ClInclude Include="$(ProjectDir)src\inffast.h" />
-    <ClInclude Include="$(ProjectDir)src\inffixed.h" />
-    <ClInclude Include="$(ProjectDir)src\inflate.h" />
-    <ClInclude Include="$(ProjectDir)src\inftrees.h" />
-    <ClInclude Include="$(ProjectDir)src\trees.h" />
-    <ClInclude Include="$(ProjectDir)src\zconf.h" />
-    <ClInclude Include="$(ProjectDir)src\zconf.in.h" />
-    <ClInclude Include="$(ProjectDir)src\zlib.h" />
-    <ClInclude Include="$(ProjectDir)src\zutil.h" />
+    <ClInclude Include="$(zlib_sources_path)crc32.h" />
+    <ClInclude Include="$(zlib_sources_path)deflate.h" />
+    <ClInclude Include="$(zlib_sources_path)inffast.h" />
+    <ClInclude Include="$(zlib_sources_path)inffixed.h" />
+    <ClInclude Include="$(zlib_sources_path)inflate.h" />
+    <ClInclude Include="$(zlib_sources_path)inftrees.h" />
+    <ClInclude Include="$(zlib_sources_path)trees.h" />
+    <ClInclude Include="$(zlib_sources_path)zconf.h" />
+    <ClInclude Include="$(zlib_sources_path)zconf.in.h" />
+    <ClInclude Include="$(zlib_sources_path)zlib.h" />
+    <ClInclude Include="$(zlib_sources_path)zutil.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\zlib.def" />
   </ItemGroup>
   <ItemDefinitionGroup>
     <Lib>
-      <ModuleDefinitionFile>$(ProjectDir)src\zlib.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(zlib_sources_path)zlib.def</ModuleDefinitionFile>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

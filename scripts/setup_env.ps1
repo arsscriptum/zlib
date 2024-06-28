@@ -13,7 +13,7 @@ function Get-ZLibPath{
     param()    
 
     if(-not([string]::IsNullOrEmpty("$PSScriptRoot"))){
-        $ZlibPath = (Resolve-Path "$PSScriptRoot").Path
+        $ZlibPath = (Resolve-Path "$PSScriptRoot\..").Path
         $ReadMePath = Join-Path "$ZlibPath" "README.md"
         $PathOk = (Get-Content "$ReadMePath" | Select -First 1) -eq '# zlib'
 

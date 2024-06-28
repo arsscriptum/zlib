@@ -2,6 +2,8 @@
 bin/**
 tmp/**
 obj/**
+vs/obj
+vs/obj/**
 x64/**
 test/bin/**
 test/tmp/**
